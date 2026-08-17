@@ -1,0 +1,270 @@
+% !TEX root = ../PolycopiePremiere2627.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contenu initial repris de Louis Paternault --- http://ababsurdo.fr
+%
+% Publié sous licence Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+% http://creativecommons.org/licenses/by-sa/4.0/deed.fr
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Suites arithmétiques}
+
+\noindent\textbf{Activité}
+
+On définit la suite $u$ à l'aide des schémas suivants (à chaque étape, on compte le nombre de cases de la « couronne » ajoutée au schéma existant).
+
+\begin{minipage}{.3\linewidth}
+    \begin{tikzpicture}[scale=.4,very thick]
+        \draw[dashed, gray] (-4, -4) grid (6, 5);
+        % u1
+        \draw (0, 0) rectangle (2, 1);
+        % u2
+        \draw (-1, -1) rectangle (3, 2);
+        \draw[darkgray, arrows={Circle[scale=.5]-}] (0.8, 0.5) -- (-3, 0) node[black, anchor=east, fill=white, inner sep=1pt]{$u(0)=2$};
+        \draw[darkgray, arrows={Circle[scale=.5]-}] (0.3, 1.5) -- (-3, 1.5) node[black, anchor=east, fill=white, inner sep=1pt]{$u(1)=10$};
+        \draw[darkgray, arrows={Circle[scale=.5]-}] (-0.2, 2.5) -- (-3, 3) node[black, anchor=east, fill=white, inner sep=1pt]{$u(2)=18$};
+        % u3
+        \draw (-2, -2) rectangle (4, 3);
+    \end{tikzpicture}
+\end{minipage}%
+\hfill%
+\begin{minipage}{.6\linewidth}
+    \begin{enumerate}
+        \item Compléter :
+        \begin{center}
+            \begin{tabular}{c|c|c}
+                $u(4)=\textcolor{J1}{34}$  & $u(\textcolor{J1}{12})=98$ & $u(0)=\textcolor{J1}{2}$ \\[5mm]
+                $u(5)=\textcolor{J1}{42}$  &                & $u(-2)=\textcolor{J1}{-14}$ \\[5mm]
+                $u(13)=\textcolor{J1}{106}$ &                & $u(4,5)=\textcolor{J1}{38}$ \\[5mm]
+            \end{tabular}
+        \end{center}
+    \end{enumerate}
+\end{minipage}
+
+\begin{enumerate}[resume]
+    \item On affirme que $u(26)=210$. Compléter :
+
+    \begin{tabularx}{\linewidth}{XXX}
+        $u(27)=\textcolor{J1}{218}$ ;&
+        $u(25)=\textcolor{J1}{202}$ ;&
+        $u(126)=\textcolor{J1}{1010}$.\\
+    \end{tabularx}
+    \item Pour une certaine valeur de $n$ inconnue, on a : $u(n)=530$. Compléter :
+
+    \begin{tabularx}{\linewidth}{XX}
+        $u(n+1)=\textcolor{J1}{538}$ ;&
+        $u(n)+1=\textcolor{J1}{531}$ ;\\
+        $u(n-1)=\textcolor{J1}{522}$ ;&
+        $u(n+2)=\textcolor{J1}{546}$.\\
+    \end{tabularx}
+    \item
+    \begin{enumerate}
+        \item Sur le graphique suivant, placer les points correspondant à $u(0)$, $u(1)$ jusqu'à $u(5)$.
+        \begin{center}
+            \begin{tikzpicture}[xscale=1,yscale=.09,very thick]
+                \draw[-latex] (0, 0) -- (8.5, 0);
+                \draw[-latex] (0, 0) -- (0, 75);
+                \draw[dotted] (0, 0) grid[xstep=1, ystep=5] (8, 70);
+                \draw (0, 0) node[below left]{$0$};
+                \foreach \x in {1, 2, ..., 8}{
+                    \draw (\x, 0) node[below]{$\x$};
+                }
+                \foreach \y in {10, 20, ..., 70}{
+                    \draw (0, \y) node[left]{$\y$};
+                }
+                \foreach \n/\v in {0/2, 1/10, 2/18, 3/26, 4/34, 5/42}{
+                    \draw (\n, \v) node{\textcolor{J1}{$\times$}};
+                }
+            \end{tikzpicture}
+        \end{center}
+        \item Compléter par lecture graphique :
+
+        \begin{tabularx}{\linewidth}{XXX}
+            $u(6)=\textcolor{J1}{50}$ ;&
+            $u(7)=\textcolor{J1}{58}$ ;&
+            $u(8)=\textcolor{J1}{66}$.\\
+        \end{tabularx}
+    \end{enumerate}
+\end{enumerate}
+
+\pagebreak
+
+\section{Suites numériques}
+
+\Dfn{On appelle \textcolor{J1}{suite numérique} une suite finie ou infinie de nombres, appelés \textcolor{J1}{termes de la suite}. Cette suite est habituellement notée $u$, $v$ ou $w$. Le premier terme est le plus souvent $u(0)$ ou $u(1)$, et pour un nombre entier $n$, $u(n)$ est \textcolor{J1}{le terme de rang $n$}.
+
+$u(n+1)$ est le terme qui suit $u(n)$, et $u(n-1)$ est le terme qui précède $u(n)$.}
+
+\Exemple{\label{ex:termes}
+\begin{enumerate}
+    \item On considère $u$ la suite de premier terme $u(0)=8$, et dont chaque terme (sauf le premier) est égal à la moitié du précédent.
+
+    \begin{enumerate}[label=\alph*)]
+        \item Calculer $u(3)$ : \textcolor{J1}{$u(3)=1$.}
+        \item Calculer le 5\ieme{} terme : \textcolor{J1}{le 1\ier{} terme est $u(0)$, donc le 5\ieme{} terme est $u(4)=0,5$.}
+        \item Calculer le terme de rang 2 : \textcolor{J1}{$u(2)=2$.}
+    \end{enumerate}
+    \item On considère $v$ la suite définie pour tout nombre entier $n\geq1$ par $v(n)=2n^2-3$.
+
+    \begin{enumerate}[label=\alph*)]
+        \item Calculer $v(3)$ : \textcolor{J1}{$v(3)=2\times3^2-3=15$.}
+        \item Calculer le 4\ieme{} terme : \textcolor{J1}{le 1\ier{} terme est $v(1)$, donc le 4\ieme{} terme est $v(4)=29$.}
+        \item Calculer le terme de rang 2 : \textcolor{J1}{$v(2)=5$.}
+    \end{enumerate}
+    \item On considère $w$ la suite définie par :
+    \begin{equation*}
+        \left\{\begin{aligned}
+            w(0) &= 5\\
+            w(n+1) &= 2w(n)-4 \text{ pour tout $n$ entier positif.}\\
+        \end{aligned}\right.
+    \end{equation*}
+
+    \begin{enumerate}[label=\alph*)]
+        \item Calculer $w(3)$ : \textcolor{J1}{$w(1)=6$, $w(2)=8$, $w(3)=12$.}
+        \item Calculer le 4\ieme{} terme : \textcolor{J1}{le 1\ier{} terme est $w(0)$, donc le 4\ieme{} terme est $w(3)=12$.}
+        \item Calculer le terme de rang 2 : \textcolor{J1}{$w(2)=8$.}
+    \end{enumerate}
+\end{enumerate}}
+
+\ANoter{Le module \emph{Suites} de la calculatrice permet de manipuler les suites.}
+
+\Exemple{À la calculatrice, reprendre les suites $u$, $v$, $w$ de l'exemple \ref{ex:termes}, et calculer $u(100)$, $v(100)$, $w(100)$.
+
+\textcolor{J1}{$u(100)=8\times0,5^{100}\approx6,3\times10^{-30}$ ; $v(100)=2\times100^2-3=\numprint{19997}$ ; $w(100)=4+2^{100}\approx1,268\times10^{30}$.}}
+
+\Dfn[Variations]{Une suite $u$ est dite :
+\begin{itemize}
+    \item \textcolor{J1}{croissante} si chaque terme est plus grand que le précédent : ${u(n+1)\geq u(n)}$ ;
+    \item \textcolor{J1}{constante} si chaque terme est égal au précédent : $u(n+1)= u(n)$ ;
+    \item \textcolor{J1}{décroissante} si chaque terme est plus petit que le précédent : ${u(n+1)\leq u(n)}$.
+\end{itemize}}
+
+\Dfn[Représentation graphique]{La représentation graphique d'une suite $u$ est le nuage de points de coordonnées $\left( n;u(n) \right)$.}
+
+\Exemple{\label{ex:graphRecurrente}
+On définit la suite $u$ sur $\mathbb{N}$ par :
+\begin{equation*}
+    \left\{\begin{aligned}
+        u(0) &= 0,5\\
+        u(n+1) &= 0,75u(n)+1 \text{ pour tout $n$ entier positif.}\\
+    \end{aligned}\right.
+\end{equation*}
+\begin{enumerate}
+    \item À l'aide de la calculatrice, déterminer les onze premiers termes de la suite (arrondir au dixième).
+
+    \textcolor{J1}{$u(0)=0,5$ ; $u(1)\approx1,4$ ; $u(2)\approx2,0$ ; $u(3)\approx2,5$ ; $u(4)\approx2,9$ ; $u(5)\approx3,2$ ; $u(6)\approx3,4$ ; $u(7)\approx3,5$ ; $u(8)\approx3,6$ ; $u(9)\approx3,7$ ; $u(10)\approx3,8$.}
+    \item Tracer la suite sur le graphique ci-dessous.
+    \begin{center}
+        \begin{tikzpicture}[scale=1,very thick]
+            \begin{axis}[
+                    yscale=.5,
+                    xscale=1.6,
+                    xmin=0,
+                    xmax=10,
+                    ymin=0,
+                    ymax=4,
+                    ultra thick,
+                    axis lines=middle,
+                    enlargelimits=upper,
+                    minor y tick num=3,
+                    xtick={0, 1, ..., 10},
+                    ytick={0, 1, ..., 4},
+                    major grid style={black, thick},
+                    grid=both,
+                    clip=false,
+                ]
+                \draw (axis cs:0, 0) node[below left]{$0$};
+                \addplot[only marks, mark=x, J1, thick] coordinates {
+                    (0,0.5) (1,1.4) (2,2.0) (3,2.5) (4,2.9) (5,3.2)
+                    (6,3.4) (7,3.5) (8,3.6) (9,3.7) (10,3.8)
+                };
+            \end{axis}
+        \end{tikzpicture}%
+    \end{center}
+\end{enumerate}}
+
+\Exemple{Par lecture graphique, conjecturer le sens de variation de la suite $u$ de l'exemple précédent.
+
+\textcolor{J1}{La suite $u$ semble croissante.}}
+
+\section{Suites arithmétiques}
+
+\noindent\textbf{Activité}
+
+L'activité d'une entreprise étant florissante, en moyenne 7 nouveaux employés ont été embauchés chaque année. En 2021, elle comptait 38 employés, et on suppose que cette progression va se poursuivre dans les années à venir.
+
+On appelle $u(n)$ le nombre d'employés l'année $2021+n$.
+
+\begin{enumerate}
+    \item Donner les cinq premiers termes de la suite : \textcolor{J1}{$u(0)=38$ ; $u(1)=45$ ; $u(2)=52$ ; $u(3)=59$ ; $u(4)=66$.}
+    \item Combien y aura-t-il d'employés en 2035 ? \textcolor{J1}{$2035=2021+14$, donc $u(14)=38+7\times14=136$ employés.}
+    \item Exprimer $u(n+1)$ en fonction de $u(n)$, pour tout $n\in\mathbb{N}$ : \textcolor{J1}{$u(n+1)=u(n)+7$.}
+\end{enumerate}
+
+\bigskip
+
+Une suite est arithmétique si on passe au terme suivant en ajoutant (ou soustrayant) toujours le même nombre.
+
+\Dfn{Une suite $u$ est dite \textcolor{J1}{arithmétique} s'il existe un réel $r$, appelé \textcolor{J1}{raison}, tel que pour tout $n\in\mathbb{N}$, on ait : \textcolor{J1}{$u(n+1)=u(n)+r$}.
+
+Habituellement, une suite arithmétique est définie par la donnée de \textcolor{J1}{son premier terme et sa raison}.}
+
+\Exemple{\label{ex:calcul}
+\begin{enumerate}
+    \item Donner les cinq premiers termes de la suite arithmétique $u$ de premier terme $u(0)=13$ et de raison \numprint{-2.5} : \textcolor{J1}{$u(0)=13$ ; $u(1)=10,5$ ; $u(2)=8$ ; $u(3)=5,5$ ; $u(4)=3$.}
+    \item La suite $v$ est arithmétique, et on sait que $v(3)=1$ et $v(4)=3$. Déterminer la raison, puis calculer $v(5)$, $v(8)$, et $v(2)$ : \textcolor{J1}{$r=v(4)-v(3)=2$, donc $v(5)=v(4)+r=5$, $v(8)=v(4)+4r=11$ et $v(2)=v(3)-r=-1$.}
+\end{enumerate}}
+
+\Exemple{\label{ex:graphArithmetique}
+Représenter graphiquement (de couleur différente) les deux suites de l'exemple \ref{ex:calcul}. Que remarquez-vous ?
+\begin{center}
+    \begin{tikzpicture}[scale=1,very thick]
+        \begin{axis}[
+                yscale=.5,
+                xscale=1.6,
+                xmin=0,
+                xmax=5,
+                ymin=0,
+                ymax=12,
+                ultra thick,
+                axis lines=middle,
+                enlargelimits=upper,
+                minor y tick num=1,
+                major grid style={black, thick},
+                grid=both,
+                clip=false,
+            ]
+            \draw (axis cs:0, 0) node[below left]{$0$};
+            \addplot[only marks, mark=o, J1, thick] coordinates {(0,13) (1,10.5) (2,8) (3,5.5) (4,3) (5,0.5)};
+            \addplot[only marks, mark=x, J1, thick] coordinates {(0,-5) (1,-3) (2,-1) (3,1) (4,3) (5,5)};
+        \end{axis}
+    \end{tikzpicture}%
+\end{center}
+
+\textcolor{J1}{Les points de $u$ (ronds) et de $v$ (croix) sont chacun alignés : les deux suites sont arithmétiques, leur représentation graphique suit un modèle de croissance linéaire.}}
+
+\Prp{Une suite est arithmétique si et seulement si les points de sa représentation graphique sont alignés.
+
+On dit que les termes de la suite suivent un modèle de \textcolor{J1}{croissance linéaire}.}
+
+\Prp{La suite $u$ est :
+\begin{itemize}
+    \item \textcolor{J1}{croissante} si et seulement si sa raison est \emph{positive} ;
+    \item \textcolor{J1}{décroissante} si et seulement si sa raison est \emph{négative} ;
+    \item \textcolor{J1}{constante} si sa raison est \emph{nulle}.
+\end{itemize}}
+
+\Exemple{Déterminer les variations des deux suites $u$ et $v$ de l'exemple \ref{ex:calcul}.
+
+\textcolor{J1}{$u$ est décroissante (sa raison $r=-2,5$ est négative) ; $v$ est croissante (sa raison $r=2$ est positive).}}
+
+\Prp{
+\begin{itemize}
+    \item Pour tout $n$ et $p$ de son domaine de définition, on a : \[\textcolor{J1}{u(n)=u(p)+(n-p)r}\]
+    \item En particulier, si $u$ est définie sur $\mathbb{N}$, pour tout $n\in\mathbb{N}$, on a : \[\textcolor{J1}{u(n)=u(0)+nr}\]
+\end{itemize}}
+
+\Exemple{On reprend les suites $u$ et $v$ de l'exemple \ref{ex:calcul}. Sans utiliser le module suite de la calculatrice :
+\begin{enumerate}
+    \item déterminer $u(100)$ et $v(100)$ : \textcolor{J1}{$u(100)=u(0)+100r=13-250=-237$ ; $v(100)=v(0)+100r=-5+200=195$ (avec $v(0)=v(3)-3r=-5$).}
+    \item déterminer le plus petit nombre $n$ tel que $v(n)\geq1000$ : \textcolor{J1}{$v(0)+nr\geq1000 \Longleftrightarrow -5+2n\geq1000 \Longleftrightarrow n\geq502,5$, donc le plus petit entier qui convient est $n=503$.}
+\end{enumerate}}

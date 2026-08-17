@@ -1,0 +1,174 @@
+% !TEX root = ../PolycopiePremiere2627.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contenu initial repris de Louis Paternault --- http://ababsurdo.fr
+%
+% Publié sous licence Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+% http://creativecommons.org/licenses/by-sa/4.0/deed.fr
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Probabilités conditionnelles}
+
+\section{Fréquences marginales, fréquences conditionnelles}
+
+\Dfn{Dans un tableau croisé d'effectifs :
+\begin{itemize}
+    \item la valeur à l'intersection d'une ligne et d'une colonne est le nombre d'individus présentant simultanément les deux caractères ;
+    \item on appelle \textcolor{J1}{effectif marginal} l'effectif d'une sous-population qui ne dépend que d'un seul caractère. Ces effectifs sont représentés dans la ligne « Total » ou la colonne « Total » ;
+    \item la \textcolor{J1}{fréquence marginale} d'une valeur est le quotient :
+    \[\dfrac{\text{Effectif marginal}}{\text{Effectif total}}\]
+    \item la \textcolor{J1}{fréquence conditionnelle} de la valeur $x_i$ sachant $y_j$ est le quotient :
+    \[\dfrac{\text{Effectif présentant les valeurs $x_i$ et $y_j$}}{\text{Effectif marginal de la valeur $y_j$}}\]
+\end{itemize}}
+
+\Exemple{Un nouveau test a été développé pour détecter une maladie, et on souhaite évaluer son efficacité. On prend un échantillon représentatif de \numprint{1000} personnes dans la population, dont on sait par ailleurs si elles sont malades ou non, et on leur fait passer le test. On obtient les résultats suivants (où « diagnostic positif » signifie que le test a détecté la maladie, peut-être à tort).
+\begin{center}
+    \begin{tabular}{|M{3.4cm}|M{1.8cm}|M{1.8cm}|M{1.8cm}|}
+        \hline
+        & \textbf{Malade} & \textbf{Saine} & \textbf{Total} \tabularnewline
+        \hline
+        Diagnostic positif & 19 & 79 & \tabularnewline
+        \hline
+        Diagnostic négatif & & 901 & \tabularnewline
+        \hline
+        Total & & & \tabularnewline
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item Complétez le tableau.
+    \item Combien de personnes malades ont obtenu un test négatif ?
+    \item Calculez la fréquence marginale de personnes malades dans la population.
+    \item Calculez la fréquence de diagnostics corrects. Le test est-il fiable ?
+    \item Calculez la fréquence conditionnelle de personnes malades sachant que le diagnostic est positif.
+\end{enumerate}}
+
+\section{Probabilités conditionnelles}
+
+\Dfn[Rappels]{Étant donnés deux évènements $A$ et $B$ d'un univers $\Omega$ :
+\begin{itemize}
+    \item l'intersection de $A$ et $B$, notée $A\cap B$, est \textcolor{J1}{l'ensemble des éléments qui appartiennent à la fois à $A$ et à $B$} ;
+    \item l'union de $A$ et $B$, notée $A\cup B$, est \textcolor{J1}{l'ensemble des éléments qui appartiennent à $A$, ou à $B$, ou aux deux à la fois} ;
+    \item le contraire de $A$, noté $\overline{A}$, est \textcolor{J1}{l'ensemble des issues de l'univers qui n'appartiennent pas à $A$}.
+\end{itemize}}
+
+\Exemple{On considère les élèves de cette classe, et :
+\begin{itemize}
+    \item $A$ : « l'ensemble des garçons » ;
+    \item $B$ : « l'ensemble des personnes portant des lunettes ».
+\end{itemize}
+Alors :
+\begin{itemize}
+    \item $A\cup B$ est : \textcolor{J1}{l'ensemble des garçons à lunettes}.
+    \item $\overline{B}$ est : \textcolor{J1}{l'ensemble des personnes sans lunettes}.
+    \item $A\cap\overline{B}$ est : \textcolor{J1}{l'ensemble des garçons sans lunettes}.
+\end{itemize}}
+
+\Dfn[Rappel]{On choisit de manière équiprobable un individu au hasard dans une population, et on considère un évènement $A$. Alors :
+\[
+    P(A)=\textcolor{J1}{\dfrac{\text{Nombre de cas favorables}}{\text{Nombre de cas possibles}}}
+\]}
+
+\Exemple{Pour vérifier la qualité d'une chaîne de montage d'aspirateurs, une équipe vérifie leur fonctionnement : sur 67 aspirateurs étudiés, 3 ne fonctionnent pas.
+
+On choisit un aspirateur au hasard à la sortie de cette chaîne de montage. Quelle est la probabilité qu'il ne fonctionne pas ?}
+
+\Dfn{Soient $A$ et $B$ deux évènements d'une expérience aléatoire, tels que $P(B)\neq0$.
+
+On appelle \textcolor{J1}{probabilité conditionnelle de $A$ sachant $B$}, ou « probabilité que $A$ soit réalisé sachant que $B$ est réalisé », le nombre :
+\[P_B\left( A \right)=\dfrac{\mathrm{card}(A\cap B)}{\mathrm{card}(B)}=\dfrac{P\left( A\cap B \right)}{P\left( B \right)}\]}
+
+\Exemple{On lance un dé équilibré à six faces, et on observe le résultat obtenu. On note $P$ : « le résultat est pair », et $Q$ : « le résultat est supérieur ou égal à quatre ».
+\begin{enumerate}
+    \item Calculer la probabilité que le résultat soit pair.
+    \item Calculer la probabilité que le résultat soit pair, sachant qu'il est supérieur ou égal à 4.
+\end{enumerate}}
+
+\Dfn{Deux évènements $A$ et $B$ (avec $P(B)\neq0$) sont dits \textcolor{J1}{indépendants} si $P_B(A)=P(A)$.}
+
+\Prp{Deux évènements $A$ et $B$ sont \textcolor{J1}{indépendants} si et seulement si $P(A\cap B)=P(A)\times P(B)$.}
+
+\Exemple[Inspiré du sujet 0 du baccalauréat d'enseignement spécifique, sujet 2, 2025]{
+% Dactylographié par l'APMEP. Merci à elles et eux.
+Dans un lycée comptant $\numprint{2000}$ élèves, on donne la répartition des effectifs suivant le sexe et le choix de la LV1.
+
+\begin{center}
+    \begin{tabular}{|M{2.6cm}|M{2cm}|M{2cm}|}
+        \hline
+        & \textbf{Fille} & \textbf{Garçon} \tabularnewline
+        \hline
+        Anglais & 712 & 728 \tabularnewline
+        \hline
+        Autre LV1 & 288 & 272 \tabularnewline
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{enumerate}
+    \item Un élève affirme « Dans ce lycée, il y a autant de filles que de garçons ». A-t-il raison ? Justifier.
+\end{enumerate}
+
+On choisit au hasard, de manière équiprobable, un élève dans ce lycée.
+
+On considère les évènements suivants :
+
+$F$ : « l'élève est une fille » ;
+
+$A$ : « l'élève a choisi Anglais pour LV1 ».
+
+Dans les questions qui suivent, on donnera les résultats sous forme d'une fraction qu'il n'est pas demandé de simplifier.
+
+\begin{enumerate}[resume]
+    \item Déterminer la probabilité de l'évènement $A \cap F$.
+    \item Déterminer la probabilité de l'évènement $A$ sachant que l'évènement $F$ est réalisé.
+    \item Les évènements $A$ et $F$ sont-ils indépendants ? Justifier.
+    \item On sait que l'élève choisi est un garçon. On considère l'affirmation suivante :
+
+    « La probabilité qu'il ait choisi Anglais pour LV1 est plus de trois fois plus grande que la probabilité qu'il n'ait pas choisi Anglais pour LV1 ».
+
+    Cette affirmation est-elle vraie ? Justifier.
+\end{enumerate}}
+
+\pagebreak
+
+\section{Répétition d'expériences aléatoires}
+
+\Prp{On peut modéliser la succession d'expériences aléatoires par un arbre de probabilités (ou arbre pondéré) respectant les règles suivantes.
+\begin{itemize}
+    \item La somme des probabilités des branches issues d'un nœud est égale à 1.
+    \item La probabilité d'une issue d'un chemin est égale au produit des probabilités rencontrées sur le chemin.
+    \item La probabilité d'un évènement est égale à la somme des probabilités des issues qui le composent.
+\end{itemize}}
+
+\Exemple[Inspiré du sujet 0 du baccalauréat d'enseignement spécifique, sujet 3, 2025]{
+% Dactylographié par Denis Vergès, de l'APMEP. Merci à lui.
+Un village propose aux participants de la fête du sport deux épreuves : une randonnée et un cross. Il n'est pas possible de s'inscrire aux deux épreuves à la fois.
+On dispose des informations suivantes :
+\begin{itemize}
+    \item $90\,\%$ des participants ont choisi la randonnée, parmi eux, $5\,\%$ sont licenciés dans un club ;
+    \item $10\,\%$ des participants ont choisi le cross, parmi eux, $40\,\%$ sont licenciés dans un club.
+\end{itemize}
+
+Un journaliste interroge un participant au hasard, et on considère les évènements suivants :
+
+$R$ : « Le participant a choisi la randonnée » ;
+
+$L$ : « Le participant est licencié dans un club ».
+
+\begin{enumerate}
+    \item Par simple lecture de l'énoncé, indiquer :
+    \begin{enumerate}
+        \item La probabilité que le participant interrogé soit licencié dans un club sachant qu'il a choisi la randonnée.
+        \item La probabilité que le participant interrogé soit licencié dans un club sachant qu'il a choisi le cross.
+    \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}[resume]
+    \item Représenter la situation par un arbre de probabilité.
+    \item
+    \begin{enumerate}
+        \item Déterminer la probabilité que le participant interrogé ait choisi le cross et soit licencié dans un club.
+        \item Vérifier que la probabilité que le participant interrogé soit licencié dans un club est égale à $\dfrac{850}{10000}$, soit $8,5\,\%$.
+    \end{enumerate}
+    \item Le journaliste interroge un participant licencié dans un club. Déterminer la probabilité que ce participant ait choisi le cross.
+\end{enumerate}}

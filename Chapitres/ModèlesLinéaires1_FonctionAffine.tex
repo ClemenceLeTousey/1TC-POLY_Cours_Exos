@@ -1,0 +1,52 @@
+% !TEX root = ../PolycopiePremiere2627.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contenu initial repris de Louis Paternault --- http://ababsurdo.fr
+%
+% Publié sous licence Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+% http://creativecommons.org/licenses/by-sa/4.0/deed.fr
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Fonction affine}
+
+\Dfn{Une \emph{fonction affine} est une fonction pouvant être exprimée sous la forme $x\mapsto ax+b$, où $a$ et $b$ sont des nombres réels. Elle est définie sur \textcolor{J1}{$\mathbb R$}.}
+
+\Dfn{La courbe d'une fonction affine $f:x\mapsto ax+b$ est une droite, dont :
+\begin{itemize}
+    \item $a$ est \textcolor{J1}{le coefficient directeur}.
+    \item $b$ est \textcolor{J1}{l'ordonnée à l'origine}.
+\end{itemize}}
+
+\Prp{Soit $f$ une fonction affine.
+\begin{itemize}
+    \item Soient $A$ et $B$ deux points de sa courbe représentative. Alors le coefficient directeur est donné par la formule :
+    \(\dfrac{y_B-y_A}{x_B-x_A}\).
+    \item Soient deux nombres $a$ et $b$ distincts. Alors le coefficient directeur est donné par la formule :
+    \(\dfrac{f(b)-f(a)}{b-a}\).
+\end{itemize}}
+
+\Exemple{
+\begin{enumerate}
+    \item Déterminer le coefficient directeur de la fonction affine dont la droite passe par les points $A(2;-7)$ et $B(7;0)$.
+    \item Déterminer le coefficient directeur de la fonction affine $f$ telle que $f(-8)=3$ et $f(2)=0$.
+\end{enumerate}}
+
+\Prp{Soit $f:x\mapsto ax+b$ une fonction affine. Alors :
+\begin{itemize}
+    \item si $a<0$, alors la fonction est \textcolor{J1}{strictement décroissante} ;
+    \item si $a=0$, alors la fonction est \textcolor{J1}{constante} ;
+    \item si $a>0$, alors la fonction est \textcolor{J1}{strictement croissante}.
+\end{itemize}}
+
+\Dfn{Une fonction affine permet de modéliser la croissance d'un phénomène linéaire continu :
+\begin{itemize}
+    \item linéaire : le taux d'accroissement de la fonction est constant ;
+    \item continu (par opposition à \emph{discret}) : le phénomène peut être étudié sur un intervalle (plutôt que, par exemple, sur l'ensemble des entiers).
+\end{itemize}}
+
+\Exemple{Dire si les phénomènes suivants sont linéaires ou non, continus ou discrets.
+\begin{enumerate}
+    \item Évolution de l'aire d'un carré en fonction de la longueur d'un de ses côtés.
+    \item Évolution de la température d'une casserole d'eau sur le feu en fonction du temps.
+    \item Évolution de la somme d'argent dans une tirelire dans laquelle on ajoute 10 € tous les mois.
+    \item Évolution de la TVA d'un article en fonction de son prix.
+\end{enumerate}}
