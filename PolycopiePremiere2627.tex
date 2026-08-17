@@ -1,0 +1,20 @@
+\documentclass[a4paper,11pt,french]{report}
+\usepackage{CLT2627}
+\usepackage{pdfpages}
+\makeindex
+
+% Pendant la rédaction : ne décommenter ici que le(s) chapitre(s) en cours d'édition
+% pour sauter la mise en page des autres (LaTeX réutilise leurs .aux existants).
+% Penser à tout commenter avant de compiler le PDF complet final.
+%\includeonly{Chapitres/...}
+
+
+\begin{document}
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
+\tableofcontents
+
+%\part{...}
+
+%\include{Chapitres/...}
+
+\end{document}

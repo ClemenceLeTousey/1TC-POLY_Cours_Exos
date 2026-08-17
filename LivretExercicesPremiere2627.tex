@@ -1,0 +1,39 @@
+\documentclass[a4paper,11pt,french]{report}
+\usepackage{CLT2627}
+\makeindex
+
+% Dans le polycopié de cours, \chapter affiche "Séquence <partie><n>" (bandeau
+% CLT2627.sty §8). Ici, chaque \chapter correspond à une feuille d'exercices
+% qui garde son propre numéro d'origine (voir \setcounter{chapter}{...} en
+% tête de chaque fichier d'Exercices/) : le bandeau affiche donc "Feuille <n>"
+% à la place. Ne pas remonter ce changement dans CLT2627.sty, qui reste
+% partagé avec PolycopiePremiere2627.tex.
+\titleformat{\chapter}[frame]
+  {\normalsize}
+  {\filright \large\enspace Feuille \thechapter\enspace}
+  {8pt}
+  {\huge \filcenter}
+\addto\captionsfrench{\renewcommand{\chaptername}{Feuille }}
+
+% La mini-TOC sous chaque \part (CLT2627.sty §8) affiche par défaut
+% "<lettre de partie><numéro>" car le Polycopié remet le compteur de chapitre
+% à zéro à chaque partie. Ici chaque feuille impose son propre numéro absolu
+% (\setcounter{chapter}{...} en tête de chaque fichier d'Exercices/), donc on
+% n'affiche que ce numéro, sans lettre de partie.
+\renewcommand{\PartieMiniTocNumero}[1]{#1}
+
+% Pendant la rédaction : ne décommenter ici que la (les) feuille(s) en cours
+% d'édition pour sauter la mise en page des autres (LaTeX réutilise leurs
+% .aux existants). Penser à tout commenter avant de compiler le PDF complet.
+%\includeonly{Exercices/...}
+
+
+\begin{document}
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
+\tableofcontents
+
+%\part{...}
+
+%\include{Exercices/...}
+
+\end{document}
